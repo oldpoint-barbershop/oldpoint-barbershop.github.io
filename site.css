@@ -234,3 +234,15 @@ body { background: var(--walnut); color: var(--paper); font: 400 17px/1.55 var(-
   .hero__photo::before { inset: 10px -10px -10px 10px; }
   .prices, .barbers, .inside, .reviews, .contacts { padding: 72px 0; }
 }
+
+/* Фишка: полоса прогресса — барбер-столб. Растёт через clip-path, чтобы полоски не сплющивались. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .wow-progress {
+      height: 6px; background: repeating-linear-gradient(-45deg, var(--brass) 0 8px, var(--paper) 8px 16px, var(--oxblood) 16px 24px, var(--paper) 24px 32px) 0 0 / 45.25px 6px;
+      animation: pole-grow linear both, pole .9s linear infinite; animation-timeline: scroll(root), auto;
+    }
+    @keyframes pole-grow { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+    @keyframes pole { to { background-position: 45.25px 0; } }
+  }
+}
