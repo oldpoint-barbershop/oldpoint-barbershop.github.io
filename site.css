@@ -246,3 +246,10 @@ body { background: var(--walnut); color: var(--paper); font: 400 17px/1.55 var(-
     @keyframes pole { to { background-position: 45.25px 0; } }
   }
 }
+
+/* Фон секции: ИИ-текстура (Cloudflare Workers AI) под заливкой цвета сайта — декор, не фото бизнеса.
+   На компьютере картинка закреплена за окном — при прокрутке секция работает как окно (параллакс). */
+.reviews { background: linear-gradient(color-mix(in srgb, var(--walnut-2) 78%, transparent), color-mix(in srgb, var(--walnut-2) 90%, transparent)), url('img/bg-reviews.webp') center / cover var(--walnut-2); }
+@media (hover: hover) and (pointer: fine) {
+  .reviews { background-attachment: scroll, fixed; }
+}
